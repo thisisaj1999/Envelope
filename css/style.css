@@ -26,14 +26,9 @@ body {
 
 .envelope {
   height: 550px;
-  width: 480px;
+  width: 500px;
   align-items: flex-end;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(213, 213, 213, 0) 0%,
-    rgba(207, 207, 207, 0.6867121848739496) 85%
-  );
+  background: #023e8a;
   border-radius: 8px;
   border: 2px solid rgb(255, 255, 255);
   position: relative;
@@ -44,6 +39,7 @@ body {
   transform: perspective(700px) rotateY(180deg);
   transition: all 1.7s ease-in-out;
   transform-origin: 50%;
+  background: #caf0f8;
 }
 
 .stamp {
@@ -53,72 +49,75 @@ body {
   backface-visibility: hidden;
 }
 
-.inside {
-  height: 80%;
-  width: 80%;
-  align-self: center;
-  z-index: 1;
-  position: absolute;
-  background: rgb(255, 187, 187);
-  opacity: 0;
-}
-
-.envelope:hover .inside {
-  transform: translateY(-100%);
-  transition: 1.2s 4.2s ease;
-  position: absolute;
-  opacity: 1;
-}
-
-.envelope:hover .inside::after {
-  transform: translateY(100%);
-}
-
 .card {
   width: 100%;
   height: 100%;
-  backface-visibility: hidden;
   position: absolute;
+  backface-visibility: hidden;
   transform: rotateY(180deg);
+  z-index: 1;
 }
 
 .card::after {
   content: "";
-  clip-path: polygon(5% 0, 95% 0, 60% 100%, 40% 100%);
-  height: 43%;
+  clip-path: polygon(
+    40% 45%,
+    60% 45%,
+    90% 0,
+    100% 0,
+    100% 100%,
+    0 100%,
+    0 0,
+    10% 0
+  );
+  height: 100%;
   width: 100%;
-  background: rgb(255, 255, 255);
+  position: absolute;
+  background: #0077b6;
 }
 
 .card::before {
   content: "";
   height: 100%;
   width: 100%;
-  z-index: 1;
-  clip-path: polygon(33% 35%, 67% 35%, 100% 100%, 0% 100%);
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(213, 213, 213, 0) 0%,
-    rgba(201, 201, 201, 0.9051995798319328) 0%,
-    rgba(196, 196, 196, 0.8407738095238095) 45%
-  );
   position: absolute;
+  clip-path: polygon(33% 42%, 67% 42%, 100% 100%, 0% 100%);
+  background: #0096c7;
+  z-index: 1;
 }
 
 .top {
   clip-path: polygon(0 0, 100% 0, 52% 100%, 48% 100%);
-  background: lightgray;
-  margin-top: 2px;
-  position: absolute;
+  background: #023e8a;
+  margin-top: 1px;
   height: 55%;
   width: 100%;
+  position: absolute;
   border-radius: 1px;
   transform-origin: top;
   z-index: 1;
 }
 
-.envelope:hover .card .top {
+.envelope:hover .top {
   transform: rotateX(180deg);
-  transition: 1.2s 2s ease;
+  transition: 1.2s 1.6s ease;
+  background: #0096c7;
+  z-index: 0;
+}
+
+.inside {
+  padding-top: 2rem;
+  height: 100%;
+  width: 80%;
+  position: absolute;
+  justify-self: center;
+  align-self: center;
+  background: #faa307;
+}
+
+.envelope:hover .inside {
+  transform: translateY(-100%);
+  transition: 3s 3s ease;
+  height: 100%;
+  opacity: 1;
 }

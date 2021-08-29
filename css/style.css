@@ -1,0 +1,51 @@
+.html {
+  font-size: 62.5%;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1440px;
+  height: 100vh;
+  align-items: center;
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+.envelope {
+  width: 620px;
+  border: 2px solid rgb(255, 255, 255);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(213, 213, 213, 0) 0%,
+    rgba(207, 207, 207, 0.6867121848739496) 85%
+  );
+  height: 100%;
+  border-radius: 1.2%;
+  align-items: flex-end;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.envelope:hover {
+  transform: perspective(1000px) rotateY(180deg);
+  transition: all 1.7s ease-in-out;
+  transform-origin: 50%;
+}
+
+.stamp {
+  height: 8rem;
+  margin: 3rem;
+  transform: rotate(4deg);
+  backface-visibility: hidden;
+}
